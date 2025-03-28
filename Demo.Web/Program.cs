@@ -10,9 +10,6 @@ using Serilog;
 using Serilog.Events;
 using System.Configuration;
 using System.Reflection;
-using Demo.Infrastructure.Repositories;
-using Demo.Domain.Repositories;
-using Demo.Application.Service;
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
@@ -37,7 +34,6 @@ try
     builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
     {
         containerBuilder.RegisterModule(new WebModule(connectionString, migrationAssembly?.FullName));
-       
     });
     #endregion
 
@@ -102,7 +98,7 @@ try
 
     Log.Information("Applicaton Started.");
 }
-catch(Exception ex)
+catch (Exception ex)
 {
     Log.Fatal(ex, "Application crashed.");
 }

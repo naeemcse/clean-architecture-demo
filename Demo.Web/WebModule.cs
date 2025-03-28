@@ -2,10 +2,11 @@
 using Demo.Application.Service;
 using Demo.Application;
 using Demo.Data;
+using Demo.Domain;
 using Demo.Domain.Repositories;
 using Demo.Domain.Services;
-using Demo.Infrastructure.Repositories;
 using Demo.Infrastructure;
+using Demo.Infrastructure.Repositories;
 using Demo.Models;
 
 namespace Demo
@@ -14,11 +15,13 @@ namespace Demo
     {
         private readonly string _connectionString;
         private readonly string _migrationAssembly;
+
         public WebModule(string connectionString, string migrationAssembly)
         {
             _connectionString = connectionString;
             _migrationAssembly = migrationAssembly;
         }
+
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<Item>().As<IItem>().InstancePerLifetimeScope();
