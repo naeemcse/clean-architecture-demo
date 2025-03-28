@@ -1,4 +1,4 @@
-﻿namespace Demo.Models.Demo
+﻿namespace Demo.Web.Models.Demo
 {
     public class IndexModel
     {

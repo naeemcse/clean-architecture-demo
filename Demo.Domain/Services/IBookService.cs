@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Demo.Domain.Repositories
+namespace Demo.Domain.Services
 {
-    public interface IBookRepository : IRepository<Book, Guid>
+    public interface IBookService
     {
-      
-        List<Book> GetLatestBooks();
+        public void AddBook(Book book);
     }
 }
